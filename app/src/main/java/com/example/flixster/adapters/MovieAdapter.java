@@ -74,12 +74,9 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
                 // else poster image
                 imageUrl = movie.getPosterPath();
             }
-            // else poster image
-
-            // Glide.with(context).load(imageUrl).into(ivPoster);
             Glide.with(context)
                     .load(imageUrl)
-                    .placeholder(new ColorDrawable(Color.BLACK))
+                    .placeholder(R.drawable.loading)
                     .into(ivPoster);
         }
     }
