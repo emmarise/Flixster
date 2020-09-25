@@ -53,7 +53,8 @@ Describe any challenges encountered while building the app.
 <img src="https://github.com/emmarise/Flixster/blob/master/flixsterP1.gif" width=250><br>
 
 ### Notes
-Describe any challenges encountered while building the app.
+I had a bug in the Adapter, instead of returning the size of the movies, I return 0 so nothing was shown on my screen.
+I also had problem with adding placeholder before image was loaded. Adding a loading.xml in the res/drawable successfully solve the problem.
 
 ### Open-source libraries used
 
