@@ -2,6 +2,8 @@ package com.example.flixster.adapters;
 
 import android.content.Context;
 import android.content.res.Configuration;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -74,7 +76,11 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
             }
             // else poster image
 
-            Glide.with(context).load(imageUrl).into(ivPoster);
+            // Glide.with(context).load(imageUrl).into(ivPoster);
+            Glide.with(context)
+                    .load(imageUrl)
+                    .placeholder(new ColorDrawable(Color.BLACK))
+                    .into(ivPoster);
         }
     }
 }
