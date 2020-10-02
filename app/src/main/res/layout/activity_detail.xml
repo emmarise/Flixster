@@ -42,4 +42,11 @@
         android:background="#040303"
         android:textColor="#A5A5A5"
         tools:text="A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals." />
+
+    <ImageView
+        android:id="@+id/ivProfile"
+        android:transitionName="profile"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="380dp" />
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.example.flixster.adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityOptionsCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -27,6 +29,8 @@ import com.example.flixster.models.Movie;
 import org.parceler.Parcels;
 
 import java.util.List;
+
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
 
@@ -84,8 +88,12 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
                 // else poster image
                 imageUrl = movie.getPosterPath();
             }
+            int radius = 30; // corner radius, higher value = more rounded
+            int margin = 10; // crop margin, set to 0 for corners with no crop
             Glide.with(context)
                     .load(imageUrl)
+                    .fitCenter()
+                    .transform(new RoundedCornersTransformation(radius, margin))
                     .placeholder(R.drawable.progress_image)
                     .into(ivPoster);
 
@@ -96,7 +104,9 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
                     // 2. Navigate to a new activity on tap
                     Intent i = new Intent(context, DetailActivity.class);
                     i.putExtra("movie", Parcels.wrap(movie));
-                    context.startActivity(i);
+                    ActivityOptionsCompat options = ActivityOptionsCompat.
+                            makeSceneTransitionAnimation((Activity)context, (View)tvTitle, "movieTitleTransition");
+                    context.startActivity(i, options.toBundle());
                 }
             });
         }
