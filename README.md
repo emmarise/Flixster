@@ -28,7 +28,8 @@ Flixster is an app that allows users to browse movies from the [The Movie Databa
 
 ### Notes
 
-Describe any challenges encountered while building the app.
+Describe any challenges encountered while building the app:
+
 Round corner did not succeed at first and fixed with searching for other students' questions, should add .fitCenter() to Gulid.
 
 ## Open-source libraries used
